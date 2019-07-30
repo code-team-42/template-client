@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import './App.css';
 
-const App = function() {
+function App() {
   return (
     <Router>
       <div>
@@ -15,6 +15,6 @@ const App = function() {
       </div>
     </Router>
   );
-};
+}
 
 export default App;
