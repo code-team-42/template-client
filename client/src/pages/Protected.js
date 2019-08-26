@@ -1,19 +1,9 @@
 import React from 'react';
-import Auth from '../components/Auth';
 
-function Protected(props) {
+function Protected() {
   return (
     <div>
-      <h1>Protected Page</h1>
-      <button
-        onClick={() => {
-          Auth.signout(() => {
-            props.history.push('/');
-          });
-        }}
-      >
-        Sign Out
-      </button>
+      <h1>Protected</h1>
     </div>
   );
 }

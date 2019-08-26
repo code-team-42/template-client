@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 export default {
-  signin: function(data) {
-    return axios.post('/api/signin', data);
+  login: function(body) {
+    return axios.post('/api/login', body);
   },
-
-  signout: function() {
-    return axios.post('/api/signout');
+  logout: function() {
+    return axios.post('/api/logout');
+  },
+  auth: function() {
+    return axios.get('/api/auth');
   }
 };

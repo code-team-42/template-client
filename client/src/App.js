@@ -1,21 +1,38 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import Protected from './pages/Protected';
+import Admin from './pages/Admin';
 import NoMatch from './pages/NoMatch';
 import ProtectedRoute from './components/ProtectedRoute';
+import NavBar from './components/NavBar';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <div>
+      <AuthProvider>
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <ProtectedRoute exact path="/protected" component={Protected} />
-          <Route component={NoMatch} />
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute
+            exact
+            path="/protected"
+            userRole="user"
+            component={Protected}
+          />
+          <ProtectedRoute
+            exact
+            path="/admin"
+            userRole="admin"
+            component={Admin}
+          />
+          <Route path="*" component={NoMatch} />
         </Switch>
-      </div>
+      </AuthProvider>
     </Router>
   );
 }
