@@ -1,11 +1,7 @@
 import React from 'react';
 
 function NoMatch() {
-  return (
-    <div className="">
-      <h1>All that wander are not lost, but you just may be...</h1>
-    </div>
-  );
+  return <h1>404: Page Not Found</h1>;
 }
 
 export default NoMatch;
