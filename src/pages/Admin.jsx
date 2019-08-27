@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function Admin() {
   return (
@@ -6,7 +6,7 @@ function Admin() {
       <h1>Admin</h1>
       <p>You have to be an admin to see this page</p>
     </div>
-  );
+  )
 }
 
-export default Admin;
+export default Admin
