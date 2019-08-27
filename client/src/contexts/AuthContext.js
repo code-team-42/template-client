@@ -1,12 +1,6 @@
 import React, { useState, useReducer, useEffect } from 'react';
 import API from '../utils/API';
 
-const roles = {
-  user: 0,
-  admin: 1
-};
-Object.freeze(roles);
-
 const actions = {
   setUser: 'SET_USER',
   setRole: 'SET_ROLE',
@@ -68,4 +62,4 @@ function AuthProvider(props) {
   );
 }
 
-export { AuthContext, AuthProvider, actions, roles };
+export { AuthContext, AuthProvider, actions };

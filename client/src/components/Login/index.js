@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { AuthContext, actions } from '../../contexts/AuthContext';
 import API from '../../utils/API';
 
-function LoginComponent() {
+function LoginComponent(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -20,9 +20,16 @@ function LoginComponent() {
       .catch(err => console.log(err));
   }
 
-  return redirect ? (
-    <Redirect to="/protected" />
-  ) : (
+  const { from } = (props.location && props.location.state) || {
+    from: { pathname: '/' }
+  };
+  console.log(from);
+
+  if (redirect) {
+    return <Redirect to={{ pathname: from.pathname, state: { from: '/' } }} />;
+  }
+
+  return (
     <div>
       <label htmlFor="email">Email:</label>
       <input
@@ -43,4 +50,4 @@ function LoginComponent() {
   );
 }
 
-export default LoginComponent;
+export default withRouter(LoginComponent);
