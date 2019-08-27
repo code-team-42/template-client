@@ -21,13 +21,13 @@ function App() {
           <ProtectedRoute
             exact
             path="/protected"
-            userRole="user"
+            permissions={['user', 'admin']}
             component={Protected}
           />
           <ProtectedRoute
             exact
             path="/admin"
-            userRole="admin"
+            permissions="admin"
             component={Admin}
           />
           <Route path="*" component={NoMatch} />

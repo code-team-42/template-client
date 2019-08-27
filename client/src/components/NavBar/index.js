@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext, roles } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function NavBar() {
   const { isLoaded, state } = useContext(AuthContext);
@@ -14,11 +14,19 @@ function NavBar() {
         if (!state.role) {
           return <Link to="/login">Login</Link>;
         }
-        if (roles[state.role] >= roles.user) {
-          display.push(<Link to="/protected">Protected</Link>);
+        if (state.role === 'user' || 'admin') {
+          display.push(
+            <Link key="protected" to="/protected">
+              Protected
+            </Link>
+          );
         }
-        if (roles[state.role] === roles.admin) {
-          display.push(<Link to="/admin">Admin</Link>);
+        if (state.role === 'admin') {
+          display.push(
+            <Link key="admin" to="/admin">
+              Admin
+            </Link>
+          );
         }
         return display;
       })()}
