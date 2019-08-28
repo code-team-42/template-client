@@ -2,6 +2,7 @@
 
 Client template for CodeTeam42/Zadruga
 
+<<<<<<< HEAD
 ## Built with
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -42,3 +43,8 @@ npm run pretty-quick
 See the information on how to deploy a React app in [README-CRA.md](README-CRA.md)
 
 For deploying a full stack app using the template-server, view https://www.fullstackreact.com/articles/deploying-a-react-app-with-a-server/ for ideas of either combining the app to a single app, or for using two separate deployments - backend API server and frontend client.
+=======
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./license) for details
+>>>>>>> master
